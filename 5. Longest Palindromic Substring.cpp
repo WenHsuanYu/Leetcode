@@ -7,7 +7,7 @@ public:
         string ans = "";
         int i = 0;
 
-
+        //starting from index i find a palindrome and then the next index i will be new start point to find a palindromic
         while(i < s.size()) {
             int r_ptr = i; 
             int l_ptr = i;
