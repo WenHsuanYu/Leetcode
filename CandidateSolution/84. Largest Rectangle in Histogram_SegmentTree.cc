@@ -1,3 +1,6 @@
+//using segment tree method
+//time complexity: O(nlogn)
+//space complexity: O(n)
 #define mid(a, b) ((a) + (((b) - (a)) >> 1))
 
 class SegmentTree {
