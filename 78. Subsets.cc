@@ -1,3 +1,6 @@
+//using backtracking method
+//TC: O(2^N)
+//SC: O(N)
 class Solution {
 public:
     vector<vector<int>> ans;
