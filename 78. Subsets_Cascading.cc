@@ -1,23 +1,21 @@
+//using Cascading method
+//TC: O(N*2^N)
+//SC: O(N*2^N)
 class Solution {
 public:
-    vector<vector<int>> ans;
-    
-    void backtrack(vector<int> &nums, int i, vector<int> temp)
-    {
-        if(i == nums.size())
-        {
-            ans.push_back(temp);
-            return;
-        }
-        
-        backtrack(nums, i+1, temp);
-        temp.push_back(nums[i]);
-        backtrack(nums, i+1, temp);
-    }
-    
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<int> temp;       
-        backtrack(nums, 0, temp);
-        return ans;
+        vector<vector<int>> subsets = {{}};
+        vector<int> ele;
+        int subset_size;
+        for (auto value : nums) {
+            subset_size = subsets.size();
+            for (int i = 0; i < subset_size; i++) {
+                ele = subsets[i];
+                ele.push_back(value);
+                subsets.push_back(ele);
+            }
+        }
+        return subsets;
+        
     }
 };
