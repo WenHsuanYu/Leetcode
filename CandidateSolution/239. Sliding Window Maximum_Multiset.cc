@@ -1,6 +1,6 @@
 //Using multiset method
 //TC:O(nlogk)
-//SC:O(1) => multiset has at most three elements. 
+//SC:O(k) => multiset has at most k elements. 
 class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
