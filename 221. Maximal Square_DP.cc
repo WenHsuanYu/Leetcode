@@ -1,3 +1,6 @@
+//Using DP method
+//TC: O(mn)
+//SC: O(mn)
 class Solution {
 public:
     int maximalSquare(vector<vector<char>>& matrix) {
