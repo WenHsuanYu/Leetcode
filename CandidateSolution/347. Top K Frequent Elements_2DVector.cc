@@ -1,3 +1,6 @@
+// Using 2D vector
+// TC: O(n)
+// SC: O(n)
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
