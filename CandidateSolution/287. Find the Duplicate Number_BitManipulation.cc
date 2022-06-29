@@ -1,3 +1,6 @@
+//Using bit manipulation method
+//TC: O(nlogn)
+//SC: O(1)
 class Solution {
 public:
     int calc(int max_num) {
