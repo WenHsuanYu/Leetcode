@@ -28,3 +28,53 @@ public:
         return dp[s.length()][p.length()];
     }
 };
+
+
+/* Two vectors of O(n) space */
+/**
+* class Solution {
+* public:
+*     bool isMatch(string s, string p) {
+*         int m = s.size(), n = p.size();
+*         vector<bool> pre(n + 1, false), cur(n + 1, false);
+*         cur[0] = true;
+*         for (int i = 0; i <= m; i++) {
+*             for (int j = 1; j <= n; j++) {
+*                 if (p[j - 1] == '*') {
+*                     cur[j] = cur[j - 2] || (pre[j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.'));
+*                 } else {
+*                     cur[j] =  pre[j - 1] && (s[i - 1] == p[j - 1] || p[j - 1] == '.');
+*                 }
+*             }
+*             fill(pre.begin(), pre.end(), false);
+* 			swap(pre, cur);
+*         }
+*         return pre[n];
+*     }
+* };
+*/
+
+/* one vector of O(n) space */
+/**
+* class Solution {
+* public:
+*     bool isMatch(string s, string p) {
+*         int m = s.size(), n = p.size();
+*         vector<bool> cur(n + 1, false);
+*         for (int i = 0; i <= m; i++) {
+*             bool pre = cur[0];
+*             cur[0] = !i;
+*             for (int j = 1; j <= n; j++) {
+*                 bool temp = cur[j];
+*                 if (p[j - 1] == '*') {
+*                     cur[j] = cur[j - 2] || (cur[j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.'));
+*                 } else {
+*                     cur[j] = pre && (s[i - 1] == p[j - 1] || p[j - 1] == '.');
+*                 }
+*                 pre = temp;
+*             }
+*         }
+*         return cur[n];
+*     }
+* };
+*/
