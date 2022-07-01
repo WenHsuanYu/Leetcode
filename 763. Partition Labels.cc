@@ -1,3 +1,6 @@
+// Using Greedy method
+//TC: O(n)
+//SC: O(n)
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
