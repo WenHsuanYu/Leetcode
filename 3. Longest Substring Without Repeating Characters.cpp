@@ -1,3 +1,6 @@
+//Using table method
+//TC: O(n)
+//SC: O(m)
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -24,3 +27,30 @@ public:
         return  max_len;
     }
 };
+
+/* Using Hash table method */
+//TC: O(n)
+//SC: O(min(m,n))
+/*
+* class Solution {
+* public:
+*     int lengthOfLongestSubstring(string s) {
+*         unordered_map<char, int> umap;
+*         
+*         int right = 0;
+*         int left = 0;
+*         int res = 0;
+*         int n = s.length();
+*         for(right; right < n; right++) {
+*             if (umap.find(s[right]) != umap.end()) {
+*                 left = umap[s[right]] > left ? umap[s[right]] : left;
+*             }
+*             int len = right - left + 1;
+*             res = res > len ? res : len;
+*             umap[s[right]] = right + 1;
+*             
+*         }
+*         return res;
+*     }
+* };
+**/
