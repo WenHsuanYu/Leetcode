@@ -1,3 +1,6 @@
+//Using hash table method
+//TC:O(m + n)
+//SC:O(m) or O(n)
 /**
  * Definition for singly-linked list.
  * struct ListNode {
