@@ -1,5 +1,5 @@
 //Using recursion method
-//TC: O(logn)
+//TC: O(n/2) = O(n)
 //SC: O(logn)
 
 /**
