@@ -1,4 +1,4 @@
-// Using topological sort (kahn's algorithm)
+// Using topological sort (kahn's algorithm based on BFS)
 // TC: O(V+E)
 // SC: O(V)
 class Solution {
