@@ -1,3 +1,6 @@
+// Using recursive approach
+// TC: O(nlogn)
+// SC: O(n)
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
