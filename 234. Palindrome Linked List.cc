@@ -1,24 +1,40 @@
-// TC: O(logn)
+// TC: O(n)
 // SC: O(1)
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
-    bool isPalindrome(int x) {
-        if (x < 0) {
-            return false;
+    bool isPalindrome(ListNode* head) {
+        ListNode* fast = head;   
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+
+        while (fast != nullptr && fast->next != nullptr) {
+            fast = fast->next->next;
+            
+            ListNode* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        int palindrome[10];
-        int len = 0;
-        while (x) {
-            palindrome[len] = x % 10;
-            x /= 10;
-            len++;
-        }
-       
-        for (auto i = 0; i < len / 2; i++) {
-            if(palindrome[0 + i] != palindrome[len - 1 -i]) {
+        // length of head is odd
+        if (fast != nullptr)
+            curr = curr->next;
+        
+        
+        while (curr != nullptr) {
+            if (curr->val != prev->val) 
                 return false;
-            }
+            prev = prev->next;
+            curr = curr->next;
         }
         
         return true;
