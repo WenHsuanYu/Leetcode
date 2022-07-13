@@ -1,5 +1,5 @@
 class Solution {
-// TC: O(2 ^ n)
+// TC: O(n * n!)
 // SC: O(n)
 public:
     vector<vector<int>> res;
@@ -24,7 +24,7 @@ public:
     
     vector<vector<int>> permute(vector<int>& nums) {
         
-        dfs(nums, 0);
+        backtrack(nums, 0);
         
         return res;
         
