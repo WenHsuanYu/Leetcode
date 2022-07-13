@@ -1,3 +1,5 @@
+// TC: O(n)
+// SC: O(1)
 static auto num = []{
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -16,6 +18,7 @@ public:
         }
         
         for (int i = 0; i < n; ++i) {
+            // abs is used to index keep the index positive
             int index = abs(nums[i]);
             //Considering number [1,n], if nums[i] is within range [1,n], the number of the index (num[i] - 1) multiply -1 (as marked)
             if (index >= 1 && index <= n) {             

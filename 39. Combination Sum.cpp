@@ -1,3 +1,5 @@
+// TC: O(k * 2^n'), where n' is the number of calling recursions of every element, and every element calls itself value in every recursion, and these calling # plus length of elements adds up to n'
+// SC: O(ceil(target / candidates[0]))
 class Solution {
 public:
     vector<vector<int>> result;
@@ -15,7 +17,6 @@ public:
             
             while (i < candidates.size() && target - candidates[i] >= 0) {
                 temp.push_back(candidates[i]);
-                
                 recur(candidates, target - candidates[i], i);
                 ++i;
                 temp.pop_back();

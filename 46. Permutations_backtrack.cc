@@ -1,8 +1,10 @@
 class Solution {
+// TC: O(2 ^ n)
+// SC: O(n)
 public:
     vector<vector<int>> res;
     
-    void dfs(vector<int>& nums, int index) {
+    void backtrack(vector<int>& nums, int index) {
         
         if (index == nums.size()) {
             res.push_back(nums);
@@ -12,7 +14,7 @@ public:
         
         for (int i = index; i < nums.size(); ++i) {
             swap(nums[index], nums[i]);
-            dfs(nums, index + 1);
+            backtrack(nums, index + 1);
             swap(nums[index], nums[i]);
             
         }
