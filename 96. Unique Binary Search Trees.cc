@@ -33,6 +33,8 @@ public:
 *         }
 *         int sum = 0;
 *         for (int i = 1; i <= n; i++)
+*             // i as a root computes a range [1, i - 1] possibilities as a left child tree
+*             // i as a root computes a range [i + 1, n] possibilities as a right child tree
 *             sum += (recur(i - 1) * recur(n - i));
 *         dp[n] = sum;
 *         return dp[n];
