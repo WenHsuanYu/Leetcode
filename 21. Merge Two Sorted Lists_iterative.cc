@@ -1,6 +1,6 @@
 //Using iterative method
 //TC: O(m + n), where n is the number of nodes in list1 and m is the number of nodes in list2.
-//SC: O(m + n)
+//SC: O(1)
 /**
  * Definition for singly-linked list.
  * struct ListNode {
