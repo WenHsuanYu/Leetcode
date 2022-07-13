@@ -1,3 +1,6 @@
+// TC: O(n^2)
+// SC: O(1)
+
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {

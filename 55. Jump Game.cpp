@@ -1,5 +1,7 @@
 // Greedy algorithm
 // starting from index i equals to 0 and ending with index i equals to last element. (Bottom-up)
+// TC: O(n)
+// SC: O(1)
 class Solution {
 public:
     bool canJump(vector<int>& nums) {

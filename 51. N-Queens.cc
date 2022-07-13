@@ -1,3 +1,6 @@
+// Using backtrack approach
+// TC: O(n!)
+// SC: O(n*n)
 #define attack 0
 #define not_attack 1
 

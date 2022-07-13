@@ -1,3 +1,6 @@
+// Using backtrack approach
+// TC: O(n!)
+// SC: O(n*n)
 #define attack 0
 #define not_attack 1
 
@@ -11,9 +14,9 @@ public:
         std::vector<std::vector<std::string> > res;
         std::vector<std::string> nQueens(n, std::string(n, '.'));
         /*
-        flag[0] to flag[n - 1] to indicate if the column had a queen before.
-        flag[n] to flag[3 * n - 2] to indicate if the 45° diagonal had a queen before.
-        flag[3 * n - 1] to flag[5 * n - 3] to indicate if the 135° diagonal had a queen before.
+        * flag[0] to flag[n - 1] to indicate if the column had a queen before.
+        * flag[n] to flag[3 * n - 2] to indicate if the 45° diagonal had a queen before.
+        * flag[3 * n - 1] to flag[5 * n - 3] to indicate if the 135° diagonal had a queen before.
         */
         std::vector<int> flag(5 * n - 2, not_attack);
         solveNQueens(nQueens, flag, 0, n);

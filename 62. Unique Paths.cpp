@@ -1,3 +1,5 @@
+// TC: O(mn)
+// SC: O(mn)
 class Solution {
 public:
     int uniquePaths(int m, int n) {

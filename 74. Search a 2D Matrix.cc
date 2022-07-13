@@ -1,4 +1,5 @@
 //TC: O(n + m) (worst case)
+//SC: O(1)
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {

@@ -1,3 +1,5 @@
+// TC: O(mn)
+// SC: O(1)
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
