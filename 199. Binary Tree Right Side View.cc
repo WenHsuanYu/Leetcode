@@ -1,5 +1,5 @@
 // TC: O(n)
-// SC: O(2^ceil(logn))
+// SC: O(2^ceil(logn)) or O(n)
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
