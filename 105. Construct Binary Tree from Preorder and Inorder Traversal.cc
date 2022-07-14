@@ -36,7 +36,7 @@ public:
         node->left = recur(preorder, umap, start, root - 1, index);
         node->right = recur(preorder, umap, root + 1, end, index);
         
-        return node;s
+        return node;
         
         
     }
