@@ -5,9 +5,11 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.size()==0) return false;
-        for(int i=0; i<matrix.size(); i++){
-            if( searchVector(matrix[i], target) ) return true;
+        if (!matrix.size()) 
+            return false;
+        for(int i = 0; i < matrix.size(); i++){
+            if(searchVector(matrix[i], target))
+                return true;
         }
         return false;
      }
