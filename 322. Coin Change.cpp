@@ -1,3 +1,5 @@
+// TC: O(n * amount)
+// SC: O(amount)
 class Solution {
     
 public:
