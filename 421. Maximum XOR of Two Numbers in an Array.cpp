@@ -1,3 +1,5 @@
+// TC: O(n)
+// SC: O(1)
 struct Node{
 public:
     Node* next[2];
