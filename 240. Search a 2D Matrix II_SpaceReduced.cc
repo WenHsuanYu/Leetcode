@@ -1,3 +1,6 @@
+// TC: O(m + n)
+// SC: O(1)
+
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
