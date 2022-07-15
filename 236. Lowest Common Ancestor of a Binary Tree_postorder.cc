@@ -43,14 +43,10 @@ public:
                     root = nullptr;
                 }
             }
-            
             if (path_p.size() && path_q.size()) {
                 break;
             }
         }
-        
-        for (int i = )
-        
         
         int lenp = path_p.size();
         int lenq = path_q.size();
@@ -59,6 +55,5 @@ public:
             i++;
         }    
         return path_p[i - 1];
-        
     }
 };
