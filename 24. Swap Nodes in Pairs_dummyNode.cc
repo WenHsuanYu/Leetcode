@@ -14,24 +14,22 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        if (!head || !(head->next)) {
+        if(!head || !(head->next)) {
             return head;
         }
-        // use dummy node 
-        ListNode* dummyNode = new ListNode(0);
-        dummyNode->next = head;
-        ListNode* prev = dummyNode;   
-        ListNode* curr = head;
         
-        while (prev->next && curr->next) {
-            prev->next = curr->next;
-            curr->next = curr->next->next;
-            prev->next->next = curr;
-            prev = curr;
-            curr = prev->next;
+        ListNode dummyNode(0);
+        dummyNode.next = head;
+        ListNode* prev = &dummyNode;
+        
+        while (prev->next && head->next) {
+            prev->next = head->next;
+            head->next = head->next->next;
+            prev->next->next = head;
+            prev = head;
+            head = head->next;
         }
         
-        
-        return dummyNode->next;
+        return dummyNode.next;
     }
 };
