@@ -8,7 +8,7 @@ public:
         int mid;
         
         while (l <= r) {
-            mid = l + ((r - l) >> 2);
+            mid = l + ((r - l) >> 1);
             if (nums[mid] == target)
                 return mid;
             
