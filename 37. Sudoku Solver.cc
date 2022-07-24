@@ -1,3 +1,5 @@
+// TC: O(n^m), where n is the number of possibilities for each square and m is the number of spaces that are blank.
+// SC: O(m)
 struct Sudoku_board{
     short row[9];
     short col[9];
