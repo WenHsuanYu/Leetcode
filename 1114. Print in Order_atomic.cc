@@ -10,8 +10,7 @@ private:
 public:
     
     Foo() {
-        // m1.lock();
-        // m2.lock();
+
     }
 
     void first(function<void()> printFirst) {
@@ -23,7 +22,7 @@ public:
         printFirst();
         turn = 2;
         cv.notify_all();
-        // m1.unlock();
+        
     }
 
     void second(function<void()> printSecond) {
