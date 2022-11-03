@@ -1,5 +1,5 @@
 //TC: O(n), where n is the length of string
-//SC: O(1)
+//SC: O(n)
 class Solution {
 public:
     //non-empty string
