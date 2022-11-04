@@ -29,6 +29,7 @@ public:
             }
             right = right->next;
         }
+        // remove the first node
         if (prev == left)
             head = head->next;
         else {
