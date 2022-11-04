@@ -1,3 +1,5 @@
+//TC: O(n)
+//SC: O(1)
 class Solution {
 public:
     int averageValue(vector<int>& nums) {
