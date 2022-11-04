@@ -21,7 +21,7 @@ public:
         ListNode dummyNode(0);
         dummyNode.next = head;
         ListNode* prev = &dummyNode;
-        
+        //Add prev->next to while condition in order to avoid undefined behaviour from head itself being null to point to 
         while (prev->next && head->next) {
             prev->next = head->next;
             head->next = head->next->next;
