@@ -1,5 +1,5 @@
 // An Interesting idea, but it does not meet the requirement of TC and it runs slowly in comparison with other solutions
-// TC: O(max(m,n))
+// TC: O(max(m,n) * log(max(m,n)/2))
 // SC: O(m + n)
 class Solution {
 public:
