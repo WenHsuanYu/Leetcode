@@ -1,6 +1,6 @@
 // Using iterative(stack) method
 //TC: O(n)
-//SC: O(n)
+//SC: O(logn)
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
