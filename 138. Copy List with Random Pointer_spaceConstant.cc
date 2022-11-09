@@ -20,37 +20,37 @@ public:
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
-        if (!head)
-            return nullptr;
         
         Node* curr = head;
-        
-        while(curr) {
+        //Every original node owns a copied node and puts it behind itself.
+        //only deal with "next" pointer part of "head" list.
+        while (curr) {
             Node* t = new Node(curr->val);
             t->next = curr->next;
             curr->next = t;
             curr = t->next;
         }
-        curr = head;
         
+        curr = head;
+        //only deal with "random" pointer part of "head" list.
         while (curr) {
-            if(curr->random)
+            if (curr->random){
                 //curr->random->next: point to copied node
                 curr->next->random = curr->random->next;
-            curr  = curr->next->next;
+            }
+            curr = curr->next->next;
         }
         
+        //Remove the redudant links
+        Node* dummyNode = new Node(-1);
+        Node* tail = dummyNode;
         curr = head;
-        Node* res = curr->next;
         while (curr) {
-            Node* t = curr->next;
-            curr->next = t->next;
-            if (t->next)
-                t->next = t->next->next;
+            tail->next = curr->next;
+            curr->next = curr->next->next;
             curr = curr->next;
+            tail = tail->next;
         }
-        return res;
-        
-        
+        return dummyNode->next;
     }
 };
