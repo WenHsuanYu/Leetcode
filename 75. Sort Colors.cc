@@ -1,5 +1,8 @@
 //using DNF sort method
 //TC: O(n), SC: O(1)
+//The value is 0 from index 0 to index low -1
+//The value is 1 from index low to index high
+//The value is 2 from index high + 1 to end 
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
