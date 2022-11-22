@@ -1,6 +1,6 @@
 //Using BinarySearch method
 //TC:O(nlogn)
-//SC:O(logn) call stack needs logn space
+//SC:O(1) call stack needs logn space
 
 class Solution {
 public:
