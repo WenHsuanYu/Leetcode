@@ -3,31 +3,25 @@
 //SC: O(4^n / (n * sqrt(n)))
 class Solution {
 public:
-    int len;
     vector<string> ans;
-    void backtrack(int n, int open, int close, string temp) {
-        if (temp.size() == len) {
-            ans.push_back(temp);
+    vector<string> generateParenthesis(int n) {
+        string tmp = "";
+        dfs(0, 0, n, tmp);
+        return ans;
+    }
+private:
+    void dfs(int open, int close, int& n, string tmp) {
+        if (close == n) {
+            ans.push_back(tmp);
             return;
         }
         
-        if (close < open) {
-            backtrack(n, open, close + 1, temp + ")");
-        }
-        
         if (open < n) {
-            backtrack(n, open + 1, close, temp + "(");
-            
+            dfs(open + 1, close, n, tmp + "(");
         }
-        // if (close < open) {
-        //     backtrack(n, open, close + 1, temp + ")");
-        // }
-    }
-    
-    vector<string> generateParenthesis(int n) {
-        len = n << 1;
-        backtrack(n, 0, 0, "");
-        return ans;
+        if (close < open) {
+            dfs(open, close + 1, n, tmp + ")");
+        }
         
     }
 };
