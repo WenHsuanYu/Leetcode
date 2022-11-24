@@ -1,34 +1,21 @@
-//Follow up
-//Divide and Conquer:
-//TC: O(nlogn), SC(1)
 class Solution {
 public:
-    int helper(vector<int>& nums, int left, int right) {
-        
-        if (left > right)
+    int helper(vector<int>& nums, int l, int r) {
+        if (l > r) {
             return INT_MIN;
-        
-        int mid = left + ((right - left) >> 1);
-        int Leftside_ans = helper(nums, left, mid - 1);
-        int Rightside_ans = helper(nums, mid + 1, right);
-        
-        int LeftSide_max = 0;
-        int RightSide_max = 0;
-        //from the middle-out to the left side
-        for (int i = mid - 1, sum = 0; i >= left; i--) {
-            sum += nums[i];
-            LeftSide_max = max(sum, LeftSide_max);
         }
-        //from the middle-out to the right side
-        for (int i = mid + 1, sum = 0; i <= right; i++) {
-            sum += nums[i];
-            RightSide_max = max(sum, RightSide_max);
+        int m = l + (r - l) / 2;
+        int LeftMax = 0;
+        int rightMax = 0;
+        for (int i = m - 1, temp = 0; i >= l; i--) {
+            temp += nums[i];
+            LeftMax = max(LeftMax, temp);
         }
-        
-        int sub_max = max(Leftside_ans, Rightside_ans);
-        int curr_max = nums[mid] + LeftSide_max + RightSide_max;
-        return curr_max > sub_max ? curr_max : sub_max;
-        
+        for (int j = m + 1, temp = 0; j <= r; j++) {
+            temp += nums[j];
+            rightMax = max(rightMax, temp);
+        }
+        return max({helper(nums, l, m - 1), helper(nums, m + 1, r), LeftMax + nums[m] + rightMax});
     }
     
     int maxSubArray(vector<int>& nums) {
