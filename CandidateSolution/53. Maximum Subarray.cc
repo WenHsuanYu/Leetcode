@@ -14,11 +14,12 @@ public:
         
         int LeftSide_max = 0;
         int RightSide_max = 0;
+        //from the middle-out to the left side
         for (int i = mid - 1, sum = 0; i >= left; i--) {
             sum += nums[i];
             LeftSide_max = max(sum, LeftSide_max);
         }
-        
+        //from the middle-out to the right side
         for (int i = mid + 1, sum = 0; i <= right; i++) {
             sum += nums[i];
             RightSide_max = max(sum, RightSide_max);
