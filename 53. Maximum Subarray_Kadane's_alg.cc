@@ -1,3 +1,5 @@
+// TC: O(n)
+// SC: O(1)
 static auto out = [](){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
