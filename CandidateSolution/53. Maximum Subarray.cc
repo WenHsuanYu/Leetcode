@@ -1,3 +1,7 @@
+//Follow up
+//Divide and Conquer:
+//TC: O(nlogn)
+//SC: O(logn)
 class Solution {
 public:
     int helper(vector<int>& nums, int l, int r) {
