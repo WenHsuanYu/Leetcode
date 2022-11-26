@@ -2,25 +2,31 @@
 //SC: O(n)
 class Solution {
 public:
-    //non-empty string
     int numDecodings(string s) {
-        if (s[0] == '0') {
-            return 0;
-        }
-        int len = s.length();
-        //dp[i] means ways can decode from s[0] to s[i - 1]
-        vector<int> dp(len + 1, 0);
-        dp[0] = 1;
-        dp[1] = 1; 
-        for (int i = 2; i <= len; i++) {
-            //consider when s[i - 1] equals to zero, what happen?
-            // for example 2: it have (2)(2)(6) (22),(6) two ways
-            dp[i] = (s[i - 1] == '0') ? 0 : dp[i - 1];
-            if (s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] <= '6')) {
-                //(2)(26)
-                dp[i] += dp[i - 2];
+        int n = s.size();
+        // dp[i] means the # of ways to decode from 0...i
+        vector<int> dp(n, 0);
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] > '0') {
+                dp[i] += i ? dp[i-1] : 1;
+            }
+            if (i && (s[i-1] == '1' || s[i-1] == '2' && '0' <= s[i] && s[i] <= '6')) {
+                dp[i] += i > 1 ? dp[i-2] : 1;
             }
         }
         return dp.back();
     }
 };
+
+//     i:0123
+// value:2214
+// dp[i]:1235
+/* 因為 14 可以發現是介於10到26之間（含兩側），在 dp[1] 的情況下，可以加入14，所以會有額外兩組解 
+ * 22 14
+ * 2, 2, 14
+ */
+/* 在dp[3]，對應到 string 值為 4，發現不是零，所以可以直接單獨加入dp[2] 各種解
+ * 2, 2, 1, 4    
+ * 2, 21, 4
+ * 22, 1, 4
+*/
