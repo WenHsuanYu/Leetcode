@@ -9,6 +9,7 @@ public:
     void dfs(string& s, vector<vector<bool>>& dp, int start) {
         if (start >= s.size()) {
             ans.push_back(curr);
+            return;
         }
         for (int end = start; end < s.size(); end++) {
                                     //string length <= 3 || >=4
