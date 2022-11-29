@@ -1,10 +1,11 @@
 //Using DP method
-//TC: O(n^3)
+//TC: O(n^2)
 //SC: O(n)
 
 class Solution {
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
+        //dp[i] means 0...i can be separated by words in wordDict
         vector<bool> dp(s.size() + 1, false);
         /*
         *    l e e t c o d e
