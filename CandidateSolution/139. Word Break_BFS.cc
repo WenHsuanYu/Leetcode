@@ -1,5 +1,5 @@
 // Using BFS method
-// TC: O(n^3)
+// TC: O(n^2)
 // SC: O(n)
 class Solution {
 public:
@@ -7,9 +7,11 @@ public:
         unordered_set<string> word_set(wordDict.begin(), wordDict.end());
         vector<bool> visited(s.size(), false);
         queue<int>q;
+        //O(1)
         q.push(0);
         while(!q.empty()) {
             int start = q.front();
+            //O(1)
             q.pop();
             if (visited[start]) {
                 continue;
