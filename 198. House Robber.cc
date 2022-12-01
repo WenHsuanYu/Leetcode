@@ -5,15 +5,16 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         int n = nums.size();
-        int prev = 0;
-        int next = 0;
+        int odd = 0;
+        int even = 0;
         for (int i = 0; i < n; i++) {
-            if (i % 2) {
-                prev = max(prev + nums[i], next);
+            if (i % 2 == 0) {
+               //wanna rob houses with an even number, but it have to compare the total money of odd to even plus nums[i]
+               even = max(even + nums[i], odd);
             } else {
-                next = max(next + nums[i], prev);
+                odd = max(odd + nums[i], even);
             }
         }
-        return max(prev, next);
+        return max(even, odd);
     }
 };
