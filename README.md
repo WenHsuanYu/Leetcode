@@ -1,5 +1,6 @@
-# Leetcode
-practice for interviews
+# Leetcode 
+![GitHub](https://img.shields.io/github/license/WenHsuanYu/Leetcode)
+- practice for interviews
 ## WARNING
-Leetcode have the problem that same code have different runtime and memory usage.
+- Leetcode have the problem that same code have different runtime and memory usage.
 
