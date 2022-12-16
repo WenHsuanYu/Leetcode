@@ -1,5 +1,6 @@
 //Top-down and 1D array method
-// TC
+// TC: O(n * amount), where n is the number of coin denominations
+// SC: O(amount), where amount is the given amount
 class Solution {
 public:
     vector<int> dp;
