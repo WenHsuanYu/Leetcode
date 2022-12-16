@@ -1,4 +1,5 @@
 //Top-down and 1D array method
+// TC
 class Solution {
 public:
     vector<int> dp;
@@ -15,20 +16,20 @@ public:
             return 0;
         if (amount < 0)
             return -1;
-        if (dp[amount] == INT_MAX) {
-            int minNum = INT_MAX;
-            
-            for (int i = 0; i < coins.size(); i++) {
-                int num = -1;
-                if (coins[i] <= amount) {
-                    num = recur(coins, amount - coins[i]);
-                }
-                if (num >= 0 && num < minNum)
-                    minNum = num + 1;
-            }
-            dp[amount] = (minNum == INT_MAX ? -1 : minNum);
+        if (dp[amount] != INT_MAX) {
+            return dp[amount];
         }
+        int minNum = INT_MAX;
         
+        for (int i = 0; i < coins.size(); i++) {
+            int num = -1;
+            if (coins[i] <= amount) {
+                num = recur(coins, amount - coins[i]);
+            }
+            if (num >= 0 && num < minNum)
+                minNum = num + 1;
+        }
+        dp[amount] = minNum == INT_MAX ? -1 : minNum;
         return dp[amount];
     }
     
