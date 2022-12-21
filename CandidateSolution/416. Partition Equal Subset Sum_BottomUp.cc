@@ -13,12 +13,13 @@ public:
         }
         for (int r = 1; r <= len; r++) {
             for (int c = 1; c <= sum; c++) {
+                // In fact, we can interpret one line:
+                // dp[r][c] = dp[r- 1][c] || (c >= nums[r - 1] && (dp[r][c] || dp[r - 1][c - nums[r - 1]]));
+                // We know, however, that dp[r - 1][c] must be true if dp[r][c] is true. So, we can divide a line into several lines for readability.
                 //not pick number
-                if (c < nums[r - 1]) {
                     dp[r][c] = dp[r - 1][c];
-                }
                 //can pick number if target is larger than or equal to nums[i - 1](number) 
-                else {
+                if (c >= nums[r - 1]) {
                     dp[r][c] = dp[r][c] || dp[r - 1][c - nums[r - 1]]; 
                 }
             }
