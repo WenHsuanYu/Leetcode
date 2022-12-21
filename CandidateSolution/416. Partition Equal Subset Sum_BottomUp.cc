@@ -1,31 +1,26 @@
 class Solution {
 public:
-
     bool canPartition(vector<int>& nums) {
-        int n = nums.size();
-        int sum = 0;
-        for (auto &i : nums)
-            sum += i;
-        if (sum % 2 == 1) {
+        int len = nums.size();
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum & 1) {
             return false;
-        } 
-        sum /= 2;
-        
-        vector<vector<bool>> dp(n + 1, vector<bool>(sum + 1, false));
-        for (int i = 0; i <= n; i++) {
-            dp[i][0] = true;
         }
-        
-        for (int i = 1; i <= n; i++) {
-            for(int j = 1; j <= sum; j++) {
+        sum >>= 1;
+        vector<vector<int>> dp(len + 1, vector<int>(sum + 1, 0));
+        for (int r = 0; r <= len; r++) {
+            dp[r][0] = 1;
+        }
+        for (int r = 1; r <= len; r++) {
+            for (int c = 1; c <= sum; c++) {
                 //not pick number
-                dp[i][j] = dp[i - 1][j];
+                dp[r][c] = dp[r - 1][c];
                 //can pick number if target is larger than or equal to nums[i - 1](number) 
-                if (j >= nums[i - 1])
-                    dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i - 1]]; 
+                if ( c >= nums[r - 1]) {
+                    dp[r][c] = dp[r][c] || dp[r - 1][c - nums[r - 1]]; 
+                }
             }
         }
-        return dp[n][sum];
-            
+        return dp[len][sum];
     }
 };
