@@ -1,8 +1,8 @@
 /*
 * Using DP + offset 
-* consider sum of nums will be negative, so, we let the minimum negative value plus the   * offset equals zero.
+* Considering the range of j from -total to total, we need to add an offset to j to map to the only positive range.
 * TC: O(t * n), where t is the sum of `nums`
-* SC: O(t * n)
+* SC: O(t)
 */
 
 
@@ -15,12 +15,12 @@ public:
         }
         vector<int>dp(2 * total + 1, 0);
         dp[nums[0] + total]++;
-        dp[nums[0] * -1 + total]++;
+        dp[-nums[0] + total]++;
         
         int n = nums.size();
         for (int i = 1; i < n; i++) {
             vector<int> next(2 * total + 1, 0);
-            for (int j = -1 * total; j <= total; j++) {
+            for (int j = -total; j <= total; j++) {
                 if (dp.at(j + total) > 0) {
                     next.at(j - nums[i] + total) += dp.at(j + total);
                     next.at(j + nums[i] + total) += dp.at(j + total);
