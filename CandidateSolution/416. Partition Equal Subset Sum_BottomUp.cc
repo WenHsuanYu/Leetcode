@@ -14,9 +14,11 @@ public:
         for (int r = 1; r <= len; r++) {
             for (int c = 1; c <= sum; c++) {
                 //not pick number
-                dp[r][c] = dp[r - 1][c];
+                if (c < nums[r - 1]) {
+                    dp[r][c] = dp[r - 1][c];
+                }
                 //can pick number if target is larger than or equal to nums[i - 1](number) 
-                if ( c >= nums[r - 1]) {
+                else {
                     dp[r][c] = dp[r][c] || dp[r - 1][c - nums[r - 1]]; 
                 }
             }
