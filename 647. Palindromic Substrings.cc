@@ -8,8 +8,10 @@ public:
         int len = s.size();
         //every single char in string s
         int res = len;
+        int l = 0;
+        int r = 2;
         //odd 
-        for (int i = 1, l = 0, r = 2; i < len; i++, l = i - 1, r = i + 1) {
+        for (int i = 1; i < len; i++, l = i - 1, r = i + 1) {
             while (l >= 0 && r < len && s[l] == s[r]) {
                 l--;
                 r++;
@@ -17,7 +19,9 @@ public:
             }
         }
         //even
-        for (int i = 1, l = 0, r = 1; i < len; i++, l = i - 1, r = i) {
+        l = 0;
+        r = 1;
+        for (int i = 1; i < len; i++, l = i - 1, r = i) {
             while (l >= 0 && r < len && s[l] == s[r]) {
                 l--;
                 r++;
