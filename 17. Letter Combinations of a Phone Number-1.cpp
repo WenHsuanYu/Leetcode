@@ -2,7 +2,7 @@ class Solution {
 public:
     const vector<string> d = {"", "", "abc", "def", "ghi",
                               "jkl", "mno", "pqrs", "tuv", "wxyz"};
-    //BFS version
+    //BFS concept
     //Time complexity: O(4^n)
     //SC: O(n)
     vector<string> letterCombinations(string digits) {
