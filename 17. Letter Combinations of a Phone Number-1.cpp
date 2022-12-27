@@ -4,6 +4,7 @@ public:
                               "jkl", "mno", "pqrs", "tuv", "wxyz"};
     //BFS version
     //Time complexity: O(4^n)
+    //SC: O(n)
     vector<string> letterCombinations(string digits) {
         if (digits.empty())
             return {};
@@ -11,7 +12,7 @@ public:
         
         for (auto &digit : digits) { // max length: 4
             vector<string> tmp;
-            for (auto ch : d[digit - '0']) { // all possible numbers of length n
+            for (auto ch : d[digit - '0']) { // all possible characters
                 for (auto s : res) {
                     tmp.push_back(s + ch);
                 }
