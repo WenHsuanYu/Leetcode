@@ -1,6 +1,6 @@
 //Using backtrack
 //TC: O(4^n / (n * sqrt(n)))
-//SC: O(4^n / (n * sqrt(n)))
+//SC: O(n)
 class Solution {
 public:
     vector<string> ans;
