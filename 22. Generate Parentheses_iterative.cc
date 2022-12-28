@@ -1,7 +1,7 @@
 // Using iterative DP method
 // important equation: Cn = C0Cn-1 + C1Cn-2 + ... + Cn-1C0
 //TC: O(4^n / (n * sqrt(n)))
-//SC: O(4^n / (n * sqrt(n)))
+//SC: O(n^2)
 class Solution {
 public:
     vector<string> generateParenthesis(int n) {
