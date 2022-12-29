@@ -1,17 +1,15 @@
 // TC: O(n^m), where n is the number of possibilities for each square and m is the number of spaces that are blank.
 // SC: O(m)
 struct Sudoku_board{
-    short row[9];
-    short col[9];
-    short box[9];
+    // zero initialization
+    short row[9]{};
+    short col[9]{};
+    short box[9]{};
     
     vector<vector<char>> &board;
     int empty_positions = 81;
     
     Sudoku_board(vector<vector<char>>& input): board(input) {
-        for (int i = 0; i < 9; i++) {
-            row[i] = col[i] = box[i] = 0;
-        }
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if(board[i][j] == '.')
