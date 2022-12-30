@@ -1,5 +1,5 @@
-// TC: O(k * 2^n'), where n' is the number of calling recursions of every element, and every element calls itself value in every recursion, and these calling # plus length of elements adds up to n'
-// SC: O(ceil(target / candidates[0]))
+// TC: O(n^m), where n is the number of candidates and m is the target
+// SC: O(m)
 class Solution {
 public:
     vector<vector<int>> result;
