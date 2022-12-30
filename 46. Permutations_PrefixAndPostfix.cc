@@ -1,5 +1,5 @@
-// TC: O(n * n!)
-// SC: O(n)
+// TC: O(n!)
+// SC: O(n!)
 // Solution:
 class Solution {
 public:

@@ -1,6 +1,6 @@
-class Solution {
 // TC: O(n * n!)
 // SC: O(n)
+class Solution {
 public:
     vector<vector<int>> res;
     
