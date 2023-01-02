@@ -1,6 +1,6 @@
 //using Cascading method
-//TC: O(N*2^N)
-//SC: O(N*2^N)
+//TC: O(N*2^N), where n is the number of nums
+//SC: O(N*2^N) because we keep N elements for each subset
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
