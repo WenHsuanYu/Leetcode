@@ -1,4 +1,4 @@
-// TC: O(n * n!)
+// TC: O(n!)
 // SC: O(n)
 class Solution {
 public:
@@ -11,7 +11,6 @@ public:
             return;
         }
         
-        
         for (int i = index; i < nums.size(); ++i) {
             swap(nums[index], nums[i]);
             backtrack(nums, index + 1);
@@ -20,7 +19,6 @@ public:
         }
         
     }
-    
     
     vector<vector<int>> permute(vector<int>& nums) {
         
