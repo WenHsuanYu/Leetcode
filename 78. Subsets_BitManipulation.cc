@@ -2,29 +2,25 @@
 //TC: O(2^N * N)
 //SC: O(N)
 #define bitmask_len 11
+
 class Solution {
 public:
-    
     vector<vector<int>> subsets(vector<int>& nums) {
-        //The length of nums
         int n = nums.size();
         int sub = pow(2, n);
-        vector<vector<int>> ans(sub, vector<int>());
-        int row = 0;
-        int len; 
-        int i = 0;
-        while (i < sub){
-            string bitmask = bitset<bitmask_len>(i).to_string();
-        
-            for (int j = bitmask_len - n; j < bitmask_len; ++j) {
+        vector<vector<int>> res(sub, vector<int>());
+        int idx = 0;
+        while (idx < sub) {
+            string bitmask = bitset<bitmask_len>(idx).to_string();
+
+            for (int j = bitmask_len - n; j < bitmask_len; j++) {
                 if (bitmask[j] == '1') {
-                    ans[row].push_back(nums[j - bitmask_len + n]);
+                    res[idx].push_back(nums[j - bitmask_len + n]);
                 }
             }
-            ++row;
-            ++i;
+            ++idx;
         }
-        return ans;
+        return res;
     }
 };
 
