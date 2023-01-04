@@ -46,7 +46,7 @@ public:
             return true;
         if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || board[i][j] != word[n])
             return false;
-        
+        //mark board[i][j] as already visited
         board[i][j] = '1';
         
         bool status = DFS(i - 1, j, n + 1, board, word) || //Up
