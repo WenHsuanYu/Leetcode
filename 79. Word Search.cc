@@ -1,6 +1,6 @@
 //using DFS(backtracking) method
 //TC: O(row * col * (4 ^ length of word))
-//SC: O(4 * length of word)
+//SC: O(length of word)
 class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
