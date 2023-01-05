@@ -29,6 +29,7 @@ public:
                 curr = curr->right;
             } else {
                 pre = curr->left;
+                //Do not check if there is a cycle (pre->right == curr) because the property of tree can not have a cycle
                 while (pre->right) {
                     pre = pre->right;
                 }
