@@ -15,19 +15,15 @@ public:
     int numIslands(vector<vector<char>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
-
         vector<int> parent(n * m);
-        
         for (int i = 0; i < n * m; i++) {
             parent[i] = i;
         }
-        //Up and left
-        vector<pair<int,int>> dir{{-1, 0}, {0, -1}};
+        vector<pair<int,int>> dir{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
                     int p1 = find(i * n + j, parent);
-                    //Up and left directions
                     for (auto k : dir) {
                         int r = i + k.first;
                         int c = j + k.second;
@@ -42,7 +38,6 @@ public:
 
             }
         }
-        
         int ans = 0;
         for (int i = 0; i < n * m; i++) {
             if (parent[i] == i && grid[i / n][i % n] == '1')
@@ -50,6 +45,4 @@ public:
         }
         return ans;
     }
-
 };
-
