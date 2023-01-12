@@ -1,6 +1,6 @@
 //Using DFS method
 //TC: O(mn)
-//SC: O(min(m, n)) //traverse layer by layer
+//SC: O(max(m, n)) //traverse layer by layer
 class Solution {
 public:
     int numIslands(vector<vector<char>>& grid) {
