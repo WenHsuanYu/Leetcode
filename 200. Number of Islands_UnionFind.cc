@@ -1,7 +1,7 @@
 //Using Union-Find method
 //TC: O(mn)
 //SC: O(mn)
-//Every island finally has a fixed index which is also the discovered last.
+//Every island finally has a fixed index which is also the discovered first.
 
 class Solution {
 public:
