@@ -16,7 +16,7 @@ public:
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1 && visited[i][j] == 0) {
-                    set<string> s;
+                    unordered_set<string> s;
                     helper(grid, i, j, i, j, visited, s);
                     string tmp = "";
                     for (auto str : s) {
@@ -26,13 +26,10 @@ public:
                 }
             }
         }
-        for (auto str : res) {
-            cout << str << endl;
-        }
         return res.size();
 
     }
-    void helper(vector<vector<int>>& grid, int x0, int y0, int i, int j, vector<vector<int>>& visited, set<string>& s) {
+    void helper(vector<vector<int>>& grid, int x0, int y0, int i, int j, vector<vector<int>>& visited, unordered_set<string>& s) {
         int m = grid.size();
         int n = grid[0].size();
         visited[i][j] = 1;
@@ -48,12 +45,11 @@ public:
         }        
     }
 };
-/*
-**int main(int argc, char* argv[]) {
-**  Solution solution;
-**  vector<vector<int>> grid{{1,1,1,0,0,0}, {1,1,1,0,0,0}, {0,0,0,1,1,0}, {0,0,0,1,1,1}};
-**  int res = solution.numDistinctIslands(grid);
-**  cout << setw(3) << res << endl;
-**  return 0;
-**};
-*/
+
+int main(int argc, char* argv[]) {
+    Solution solution;
+    vector<vector<int>> grid{{1,1,1,0,0,0}, {1,1,1,0,0,0}, {0,0,0,1,1,0}, {0,0,0,1,1,1}};
+    int res = solution.numDistinctIslands(grid);
+    cout << setw(3) << res << endl;
+    return 0;
+}
