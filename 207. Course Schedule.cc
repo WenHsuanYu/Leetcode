@@ -1,6 +1,6 @@
 // Using topological sort (kahn's algorithm based on BFS)
 // TC: O(V+E)
-// SC: O(V)
+// SC: O(V+E)
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
