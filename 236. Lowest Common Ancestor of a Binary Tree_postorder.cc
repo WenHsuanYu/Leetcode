@@ -25,6 +25,7 @@ public:
                 root = root->left;
             } else {
                 root = st.top();
+                // lastVisited: avoid visiting the root's right node twice
                 if (root->right && lastVisited != root->right) {
                     // return from left
                     // visit root of (sub)tree
