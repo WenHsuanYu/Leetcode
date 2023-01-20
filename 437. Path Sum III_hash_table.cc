@@ -1,6 +1,6 @@
 //Using hash table + recursive approach
 //TC: O(n)
-//SC: O(2^n) in worst case
+//SC: O(n) in worst case
 
 /**
  * Definition for a binary tree node.
@@ -15,18 +15,18 @@
  */
 class Solution {
 public:
-    unordered_map<long, int> um;
+    unordered_map<int64_t, int64_t> um;
     int ans = 0;
-    void find(TreeNode* root, long sum, int& targetSum) {
+    void find(TreeNode* root, int64_t sum, int& targetSum) {
         if (!root)
             return;
         sum += root->val;
-        int prefixSum = sum - targetSum;
-        if (um.find(prefixSum) != um.end()) {
-            ans += um[prefixSum];
+        //long prefixSum = sum - targetSum;
+        if (um.find(sum - targetSum) != um.end()) {
+            ans += um[sum - targetSum];
         }
         um[sum]++;
-        find(root->left, sum, targetSum);  
+        find(root->left, sum, targetSum);
         find(root->right, sum, targetSum);
         um[sum]--;
     }
