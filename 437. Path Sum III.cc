@@ -1,6 +1,6 @@
 // Using recursive approach
-// TC: O(nlogn)
-// SC: O(n)
+// TC: O(n^2)  for the worst case
+// SC: O(logn)
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -14,30 +14,17 @@
  */
 class Solution {
 public:
-    int path_num = 0;
     int pathSum(TreeNode* root, int targetSum) {
-        if (!root)
+        if (root == nullptr) {
             return 0;
-        
-        recur(root, targetSum);
-        pathSum(root->left, targetSum);
-        pathSum(root->right, targetSum);
-        return path_num;
+        }
+        return dfs(root, targetSum) + pathSum(root->left, targetSum) + pathSum(root->right, targetSum);
     }
-private:
-    void recur(TreeNode* root, long targetSum) {
+    int dfs(TreeNode* root, int64_t sum) {
         if (!root) {
-            return;
+            return 0;
         }
-        
-        
-        if (root->val == targetSum) {
-            path_num += 1;
-        }
-        
-        recur(root->left, targetSum - root->val);
-        recur(root->right, targetSum - root->val);
+        sum -= root->val;
+        return !sum + dfs(root->left, sum) + dfs(root->right, sum);
     }
-    
-    
 };
