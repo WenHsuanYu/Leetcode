@@ -12,8 +12,9 @@ public:
             if (s[i] == '(') {
                 st.push(i);
             } else {
+                //stack always have a base index which can not form a valid parenthesis as the bases for computing the length of valid parentheses.
                 st.pop();
-                //extra ')' 
+                //Update the bases
                 if (st.empty()) {
                     st.push(i);
                 } else {
