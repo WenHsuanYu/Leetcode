@@ -3,55 +3,41 @@
 // SC: O(n)
 class MinStack {
 public:
-    stack<int64_t> st;
-    int64_t min;
     MinStack() {
         
     }
     
     void push(int val) {
-        if (st.empty()) {
-            st.push(val);
+        // we first push the min value to the stack so that we can recovery it and then we update the min value to val
+        if (val <= min) {
+            st.push(min);
             min = val;
-        } else if (val <= min) {
-            //A trick: 2 * val - min = flag
-            //2ll instead of
-            st.push(2ll * val - min);
-            min = val;
-        } else {
-            st.push(val);
         }
+        //we also push the val to the stack.
+        st.push(val);
     }
     
     void pop() {
-        if (st.empty()) {
-            return;
-        }
-        // we restore previous min if we meet flag 
-        // Because current min is less than previous, flag is also less than current min 
-        if (st.top() < min) {
-            // 2 * min - flag = previous min
-            //2ll instead of 2
-            min = 2ll * min - st.top();
+        // we need to pop the min value and recover it from the stack
+        if (st.top() == min) {
+            st.pop();
+            min = st.top();
         }
         st.pop();
     }
     
     int top() {
-        if (st.empty())
-            return -1;
-        if (st.top() < min) {
-            return min;
-        }
         return st.top();
     }
     
     int getMin() {
-        if (st.empty())
-            return -1;
         return min;
     }
+private:
+    stack<int> st;
+    int min = INT_MAX;
 };
+
 
 /**
  * Your MinStack object will be instantiated and called as such:
