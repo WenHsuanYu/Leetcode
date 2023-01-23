@@ -1,5 +1,5 @@
 // Using similar to Morris Traversal method
-// TC: O((logn)^2) in worst case, O(n) in average case
+// TC: O(n)
 // SC: O(1)
 /**
  * Definition for a binary tree node.
