@@ -13,25 +13,18 @@
  * };
  */
 class Solution {
-    TreeNode* head = nullptr;
+public:    
     //start at the Bottom and work up
     //recursively work down from right path to left path
-    void reverse(TreeNode* curr) {
-        if (curr->right) {
-            reverse(curr->right);
-        }
-        if (curr->left) {
-            reverse(curr->left);
-        }
-        curr->left = nullptr;
-        curr-> right = head;
-        head = curr;
-    }
-    
-    
-public:       
+    TreeNode* prev = nullptr;
     void flatten(TreeNode* root) {
-        if(root) 
-            reverse(root);
+        if(!root) 
+            return;
+        flatten(root->right);
+        flatten(root->left);
+
+        root->right = prev;
+        root->left = nullptr;
+        prev = root;
     }
 };
