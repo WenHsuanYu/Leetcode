@@ -1,6 +1,6 @@
 // Using recursion method
 // TC: O(n)
-// SC: O(1)
+// SC: O(n)
 class Solution {
 public:
     
