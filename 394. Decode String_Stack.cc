@@ -4,43 +4,29 @@
 class Solution {
 public:
     string decodeString(string s) {
-        stack<char> st;
-        int len = s.length();
-        for (int i = 0; i < len; i++) {
-            if ( s[i] != ']') {
-                st.push(s[i]);
+        string cstr = "";
+        vector<pair<string, int>> st;
+        int sum = 0;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == '[') {
+                st.push_back({cstr, sum});
+                sum = 0;
+                cstr = "";
+            } else if (s[i] == ']') {
+                sum = st.back().second;
+                auto tmp = cstr;
+                cstr = st.back().first;
+                while (sum) {
+                    cstr += tmp;
+                    sum--;
+                }
+                st.pop_back();
+            } else if (isdigit(s[i])) {
+                sum = 10 * sum + (s[i] - '0');
             } else {
-                string curr = "";
-                
-                while (st.top() != '[') {
-                    curr = st.top() + curr;
-                    st.pop();
-                }
-                st.pop();
-                
-                string number;
-                
-                while (!st.empty() && st.top() <= '9') {
-                    number = st.top() + number;
-                    st.pop();
-                }
-                int count = stoi(number);
-                int len_curr = curr.length();
-                while (count--) {
-                    for (int i = 0; i < len_curr; i++) {
-                        st.push(curr[i]);
-                    }
-                }
-                
+                cstr += s[i];
             }
-
         }
-        
-        string ans = "";
-        while (!st.empty()) {
-            ans = st.top() + ans;
-            st.pop();
-        }
-        return ans;
+        return cstr;
     }
 };
