@@ -14,35 +14,31 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode* dummyNode = new ListNode(0);
-        dummyNode->next = head;
-        ListNode* before_new_start = dummyNode;
-        ListNode* new_start = head;
-        ListNode* curr = nullptr;
-        ListNode* prev = nullptr;
-        ListNode* nxt = nullptr;
-
-        while(true) {
-            ListNode* cursor = new_start;
+        ListNode* dummy = new ListNode(-1, head);
+        ListNode* curr = head;
+        ListNode* prev = dummy;
+        ListNode* RevHead = nullptr;
+        ListNode* RevTail = nullptr;
+        while (true) {
+            ListNode* nextStart = curr;
             for (int i = 0; i < k; i++) {
-                if (!cursor) {
-                    return dummyNode->next;
+                if (!nextStart) {
+                    return dummy->next;
                 }
-                cursor = cursor->next;
+                nextStart = nextStart->next;
             }
-            curr = new_start;
-            prev = before_new_start;
-            for (int i = 0; i < k; i++) {
-                nxt = curr->next;
-                curr->next = prev;
-                prev = curr;
-                curr = nxt;
+            RevHead = curr;
+            RevTail = prev;
+            while (RevHead != nextStart) {
+                auto tmp = RevHead->next;
+                RevHead->next = RevTail;
+                RevTail = RevHead;
+                RevHead = tmp;
             }
-            
-            new_start->next = curr;
-            before_new_start->next = prev;
-            before_new_start = new_start;
-            new_start = curr;   
+            curr->next = RevHead;
+            prev->next = RevTail;
+            prev = curr;
+            curr = RevHead;
         }
     }
 };
