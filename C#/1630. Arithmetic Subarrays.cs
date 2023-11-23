@@ -1,3 +1,5 @@
+// TC: O(m * nlogn), where m is the length of l or r, and n is the length of nums
+// SC: O(n)
 public class Solution {
     public IList<bool> CheckArithmeticSubarrays(int[] nums, int[] l, int[] r) {
         List<bool> result = new List<bool>();
