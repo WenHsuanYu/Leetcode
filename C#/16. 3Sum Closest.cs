@@ -1,3 +1,5 @@
+// TC: O(n^2)
+// SC: O(1)
 public class Solution {
     public int ThreeSumClosest(int[] nums, int target) {
         int len = nums.Length;
