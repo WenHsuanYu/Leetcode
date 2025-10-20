@@ -1,3 +1,8 @@
+// 15. 3Sum
+// TC: O(N^2) where N = nums length
+// SC: O(1) excluding the space for output
+
+
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         if (nums.length == 3) {
